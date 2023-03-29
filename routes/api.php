@@ -19,4 +19,4 @@ use App\Http\Controllers\Admin\VisitorController;
 // });
 
 // Get Visitor 
-Route::get('/getvisitor', [VisitorController::class, 'GetVisitorDetails']);
+Route::get('/insertVisitor', [VisitorController::class, 'GetVisitorDetails']);
