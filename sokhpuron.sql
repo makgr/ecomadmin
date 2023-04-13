@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2023 at 07:25 PM
+-- Generation Time: Apr 13, 2023 at 10:21 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -76,7 +76,8 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `message`, `contact_date`, `conta
 (1, 'Mohammad Ali Khan', 'xvirus.bd@gmail.com', 'This is test message form contact page.', '01-04-2023', '11:31:25pm', '2023-04-01 17:31:25', '2023-04-01 17:31:25'),
 (2, 'test name', 'test@mail.com', 'test message.', '01-04-2023', '11:36:48pm', '2023-04-01 17:36:49', '2023-04-01 17:36:49'),
 (3, 'new user', 'newu@mail.com', 'testing message from contact page.', '01-04-2023', '11:43:15pm', '2023-04-01 17:43:15', '2023-04-01 17:43:15'),
-(4, 'aaa', 'a@mail.com', 'aaa', '01-04-2023', '11:57:10pm', '2023-04-01 17:57:10', '2023-04-01 17:57:10');
+(4, 'aaa', 'a@mail.com', 'aaa', '01-04-2023', '11:57:10pm', '2023-04-01 17:57:10', '2023-04-01 17:57:10'),
+(6, 'ddd', 's@mail.com', 'aaa', '12-04-2023', '11:50:38pm', '2023-04-12 17:50:38', '2023-04-12 17:50:38');
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2023_04_01_161117_create_contacts_table', 3),
 (9, '2023_04_01_184609_create_site_infos_table', 4),
 (10, '2023_04_02_160021_create_categories_table', 5),
-(11, '2023_04_02_161612_create_subcategories_table', 6);
+(11, '2023_04_02_161612_create_subcategories_table', 6),
+(12, '2023_04_13_195153_create_product_lists_table', 7);
 
 -- --------------------------------------------------------
 
@@ -152,6 +154,38 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_lists`
+--
+
+CREATE TABLE `product_lists` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `special_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subcategory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remark` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brand` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `star` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_lists`
+--
+
+INSERT INTO `product_lists` (`id`, `title`, `price`, `special_price`, `image`, `category`, `subcategory`, `remark`, `brand`, `star`, `product_code`, `created_at`, `updated_at`) VALUES
+(1, 'ASUS TUF A15 FA506IU Ryzen 7', '50000', '48000', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Mobile', 'Apple', 'Featured', 'Test', '5', '101', '2023-04-13 20:10:29', '2023-04-13 20:10:29'),
+(2, 'ASUS TUF A15 FA506IU Ryzen 5', '53000', '52000', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Mobile', 'Apple', 'NEW', 'Test', '4', '102', '2023-04-13 20:10:29', '2023-04-13 20:10:29'),
+(3, 'Mens Item', '2000', '1500', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Mens', 'COLLECTION', 'Test', '4', '103', '2023-04-13 20:10:29', '2023-04-13 20:10:29'),
+(4, 'Womens Item', '3000', '2800', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Womens', 'Featured', 'Test', '3', '104', '2023-04-13 20:10:29', '2023-04-13 20:10:29');
 
 -- --------------------------------------------------------
 
@@ -318,7 +352,17 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (20, '127.0.0.1', '09:53:01pm', '02-04-2023', '2023-04-02 15:53:01', '2023-04-02 15:53:01'),
 (21, '127.0.0.1', '10:07:47pm', '02-04-2023', '2023-04-02 16:07:47', '2023-04-02 16:07:47'),
 (22, '127.0.0.1', '10:26:24pm', '02-04-2023', '2023-04-02 16:26:24', '2023-04-02 16:26:24'),
-(23, '127.0.0.1', '10:26:47pm', '02-04-2023', '2023-04-02 16:26:47', '2023-04-02 16:26:47');
+(23, '127.0.0.1', '10:26:47pm', '02-04-2023', '2023-04-02 16:26:47', '2023-04-02 16:26:47'),
+(24, '127.0.0.1', '03:59:11am', '09-04-2023', '2023-04-08 21:59:11', '2023-04-08 21:59:11'),
+(25, '127.0.0.1', '03:59:51am', '09-04-2023', '2023-04-08 21:59:51', '2023-04-08 21:59:51'),
+(26, '127.0.0.1', '03:59:58am', '09-04-2023', '2023-04-08 21:59:58', '2023-04-08 21:59:58'),
+(27, '127.0.0.1', '11:39:20pm', '12-04-2023', '2023-04-12 17:39:20', '2023-04-12 17:39:20'),
+(28, '127.0.0.1', '11:50:20pm', '12-04-2023', '2023-04-12 17:50:20', '2023-04-12 17:50:20'),
+(29, '127.0.0.1', '11:50:51pm', '12-04-2023', '2023-04-12 17:50:51', '2023-04-12 17:50:51'),
+(30, '127.0.0.1', '12:21:13am', '14-04-2023', '2023-04-13 18:21:14', '2023-04-13 18:21:14'),
+(31, '127.0.0.1', '12:21:53am', '14-04-2023', '2023-04-13 18:21:53', '2023-04-13 18:21:53'),
+(32, '127.0.0.1', '12:22:39am', '14-04-2023', '2023-04-13 18:22:39', '2023-04-13 18:22:39'),
+(33, '127.0.0.1', '02:07:54am', '14-04-2023', '2023-04-13 20:07:54', '2023-04-13 20:07:54');
 
 --
 -- Indexes for dumped tables
@@ -362,6 +406,12 @@ ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `product_lists`
+--
+ALTER TABLE `product_lists`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sessions`
@@ -410,7 +460,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -422,13 +472,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product_lists`
+--
+ALTER TABLE `product_lists`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `site_infos`
@@ -452,7 +508,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
