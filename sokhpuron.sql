@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2023 at 10:21 PM
+-- Generation Time: Apr 14, 2023 at 10:34 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -183,9 +183,15 @@ CREATE TABLE `product_lists` (
 
 INSERT INTO `product_lists` (`id`, `title`, `price`, `special_price`, `image`, `category`, `subcategory`, `remark`, `brand`, `star`, `product_code`, `created_at`, `updated_at`) VALUES
 (1, 'ASUS TUF A15 FA506IU Ryzen 7', '50000', '48000', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Mobile', 'Apple', 'Featured', 'Test', '5', '101', '2023-04-13 20:10:29', '2023-04-13 20:10:29'),
-(2, 'ASUS TUF A15 FA506IU Ryzen 5', '53000', '52000', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Mobile', 'Apple', 'NEW', 'Test', '4', '102', '2023-04-13 20:10:29', '2023-04-13 20:10:29'),
+(2, 'ASUS TUF A15 FA506IU Ryzen 5', '53000', '52000', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Mobile', 'Apple', 'COLLECTION', 'Test', '4', '102', '2023-04-13 20:10:29', '2023-04-13 20:10:29'),
 (3, 'Mens Item', '2000', '1500', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Mens', 'COLLECTION', 'Test', '4', '103', '2023-04-13 20:10:29', '2023-04-13 20:10:29'),
-(4, 'Womens Item', '3000', '2800', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Womens', 'Featured', 'Test', '3', '104', '2023-04-13 20:10:29', '2023-04-13 20:10:29');
+(4, 'Womens Item', '3000', '2800', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Womens', 'Featured', 'Test', '3', '104', '2023-04-13 20:10:29', '2023-04-13 20:10:29'),
+(5, 'Womens Item 33', '3499', '2800', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Womens', 'COLLECTION', 'Test', '3', '104', '2023-04-13 20:10:29', '2023-04-13 20:10:29'),
+(6, 'Test item', '3600', 'na', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Mens', 'NEW', 'Test', '5', '3365', '2023-04-14 20:07:06', '2023-04-14 20:07:06'),
+(7, 'Test item 2', '3600', '2200', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Mens', 'NEW', 'Test', '4', '3366', '2023-04-14 20:07:06', '2023-04-14 20:07:06'),
+(8, 'Test item 3', '3455', '2200', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Mens', 'NEW', 'Test', '5', '3366', '2023-04-14 20:07:06', '2023-04-14 20:07:06'),
+(9, 'Test item 4', '5500', '4455', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Mens', 'NEW', 'Test', '5', '3366', '2023-04-14 20:07:06', '2023-04-14 20:07:06'),
+(10, 'Test item 5', '5507', '4455', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Fashion', 'Mens', 'NEW', 'Test', '3', '3377', '2023-04-14 20:07:06', '2023-04-14 20:07:06');
 
 -- --------------------------------------------------------
 
@@ -362,7 +368,36 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (30, '127.0.0.1', '12:21:13am', '14-04-2023', '2023-04-13 18:21:14', '2023-04-13 18:21:14'),
 (31, '127.0.0.1', '12:21:53am', '14-04-2023', '2023-04-13 18:21:53', '2023-04-13 18:21:53'),
 (32, '127.0.0.1', '12:22:39am', '14-04-2023', '2023-04-13 18:22:39', '2023-04-13 18:22:39'),
-(33, '127.0.0.1', '02:07:54am', '14-04-2023', '2023-04-13 20:07:54', '2023-04-13 20:07:54');
+(33, '127.0.0.1', '02:07:54am', '14-04-2023', '2023-04-13 20:07:54', '2023-04-13 20:07:54'),
+(34, '127.0.0.1', '02:33:46am', '14-04-2023', '2023-04-13 20:33:46', '2023-04-13 20:33:46'),
+(35, '127.0.0.1', '01:12:46am', '15-04-2023', '2023-04-14 19:12:46', '2023-04-14 19:12:46'),
+(36, '127.0.0.1', '01:55:25am', '15-04-2023', '2023-04-14 19:55:25', '2023-04-14 19:55:25'),
+(37, '127.0.0.1', '01:56:21am', '15-04-2023', '2023-04-14 19:56:21', '2023-04-14 19:56:21'),
+(38, '127.0.0.1', '01:56:57am', '15-04-2023', '2023-04-14 19:56:57', '2023-04-14 19:56:57'),
+(39, '127.0.0.1', '01:57:03am', '15-04-2023', '2023-04-14 19:57:03', '2023-04-14 19:57:03'),
+(40, '127.0.0.1', '02:03:05am', '15-04-2023', '2023-04-14 20:03:05', '2023-04-14 20:03:05'),
+(41, '127.0.0.1', '02:06:01am', '15-04-2023', '2023-04-14 20:06:01', '2023-04-14 20:06:01'),
+(42, '127.0.0.1', '02:07:16am', '15-04-2023', '2023-04-14 20:07:16', '2023-04-14 20:07:16'),
+(43, '127.0.0.1', '02:08:22am', '15-04-2023', '2023-04-14 20:08:22', '2023-04-14 20:08:22'),
+(44, '127.0.0.1', '02:09:08am', '15-04-2023', '2023-04-14 20:09:08', '2023-04-14 20:09:08'),
+(45, '127.0.0.1', '02:09:57am', '15-04-2023', '2023-04-14 20:09:57', '2023-04-14 20:09:57'),
+(46, '127.0.0.1', '02:13:13am', '15-04-2023', '2023-04-14 20:13:13', '2023-04-14 20:13:13'),
+(47, '127.0.0.1', '02:13:22am', '15-04-2023', '2023-04-14 20:13:22', '2023-04-14 20:13:22'),
+(48, '127.0.0.1', '02:14:48am', '15-04-2023', '2023-04-14 20:14:48', '2023-04-14 20:14:48'),
+(49, '127.0.0.1', '02:15:27am', '15-04-2023', '2023-04-14 20:15:27', '2023-04-14 20:15:27'),
+(50, '127.0.0.1', '02:15:32am', '15-04-2023', '2023-04-14 20:15:32', '2023-04-14 20:15:32'),
+(51, '127.0.0.1', '02:15:36am', '15-04-2023', '2023-04-14 20:15:36', '2023-04-14 20:15:36'),
+(52, '127.0.0.1', '02:18:41am', '15-04-2023', '2023-04-14 20:18:41', '2023-04-14 20:18:41'),
+(53, '127.0.0.1', '02:21:21am', '15-04-2023', '2023-04-14 20:21:21', '2023-04-14 20:21:21'),
+(54, '127.0.0.1', '02:21:32am', '15-04-2023', '2023-04-14 20:21:32', '2023-04-14 20:21:32'),
+(55, '127.0.0.1', '02:21:39am', '15-04-2023', '2023-04-14 20:21:39', '2023-04-14 20:21:39'),
+(56, '127.0.0.1', '02:21:45am', '15-04-2023', '2023-04-14 20:21:45', '2023-04-14 20:21:45'),
+(57, '127.0.0.1', '02:23:58am', '15-04-2023', '2023-04-14 20:23:58', '2023-04-14 20:23:58'),
+(58, '127.0.0.1', '02:28:50am', '15-04-2023', '2023-04-14 20:28:50', '2023-04-14 20:28:50'),
+(59, '127.0.0.1', '02:28:57am', '15-04-2023', '2023-04-14 20:28:57', '2023-04-14 20:28:57'),
+(60, '127.0.0.1', '02:30:04am', '15-04-2023', '2023-04-14 20:30:04', '2023-04-14 20:30:04'),
+(61, '127.0.0.1', '02:30:21am', '15-04-2023', '2023-04-14 20:30:21', '2023-04-14 20:30:21'),
+(62, '127.0.0.1', '02:30:30am', '15-04-2023', '2023-04-14 20:30:30', '2023-04-14 20:30:30');
 
 --
 -- Indexes for dumped tables
@@ -484,7 +519,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `product_lists`
 --
 ALTER TABLE `product_lists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `site_infos`
@@ -508,7 +543,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
