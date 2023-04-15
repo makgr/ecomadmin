@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2023 at 10:34 PM
+-- Generation Time: Apr 15, 2023 at 08:59 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -98,6 +98,28 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `home_sliders`
+--
+
+CREATE TABLE `home_sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `slider_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `home_sliders`
+--
+
+INSERT INTO `home_sliders` (`id`, `slider_image`, `created_at`, `updated_at`) VALUES
+(1, 'http://127.0.0.1:8000/storage/slider1.jpg', '2023-04-15 18:54:54', '2023-04-15 18:54:54'),
+(2, 'http://127.0.0.1:8000/storage/slider2.jpg', '2023-04-15 18:54:54', '2023-04-15 18:54:54'),
+(3, 'http://127.0.0.1:8000/storage/slider3.jpg', '2023-04-15 18:55:04', '2023-04-15 18:55:04');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -123,7 +145,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2023_04_01_184609_create_site_infos_table', 4),
 (10, '2023_04_02_160021_create_categories_table', 5),
 (11, '2023_04_02_161612_create_subcategories_table', 6),
-(12, '2023_04_13_195153_create_product_lists_table', 7);
+(12, '2023_04_13_195153_create_product_lists_table', 7),
+(13, '2023_04_15_184252_create_home_sliders_table', 8);
 
 -- --------------------------------------------------------
 
@@ -397,7 +420,8 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (59, '127.0.0.1', '02:28:57am', '15-04-2023', '2023-04-14 20:28:57', '2023-04-14 20:28:57'),
 (60, '127.0.0.1', '02:30:04am', '15-04-2023', '2023-04-14 20:30:04', '2023-04-14 20:30:04'),
 (61, '127.0.0.1', '02:30:21am', '15-04-2023', '2023-04-14 20:30:21', '2023-04-14 20:30:21'),
-(62, '127.0.0.1', '02:30:30am', '15-04-2023', '2023-04-14 20:30:30', '2023-04-14 20:30:30');
+(62, '127.0.0.1', '02:30:30am', '15-04-2023', '2023-04-14 20:30:30', '2023-04-14 20:30:30'),
+(63, '127.0.0.1', '12:43:14am', '16-04-2023', '2023-04-15 18:43:14', '2023-04-15 18:43:14');
 
 --
 -- Indexes for dumped tables
@@ -421,6 +445,12 @@ ALTER TABLE `contacts`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `home_sliders`
+--
+ALTER TABLE `home_sliders`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -504,10 +534,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `home_sliders`
+--
+ALTER TABLE `home_sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -543,7 +579,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
