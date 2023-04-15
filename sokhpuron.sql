@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2023 at 08:59 PM
+-- Generation Time: Apr 15, 2023 at 09:52 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -146,7 +146,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2023_04_02_160021_create_categories_table', 5),
 (11, '2023_04_02_161612_create_subcategories_table', 6),
 (12, '2023_04_13_195153_create_product_lists_table', 7),
-(13, '2023_04_15_184252_create_home_sliders_table', 8);
+(13, '2023_04_15_184252_create_home_sliders_table', 8),
+(14, '2023_04_15_191952_create_product_details_table', 9);
 
 -- --------------------------------------------------------
 
@@ -177,6 +178,43 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_details`
+--
+
+CREATE TABLE `product_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `image_one` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_two` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_three` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_four` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `short_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `size` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `long_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_details`
+--
+
+INSERT INTO `product_details` (`id`, `product_id`, `image_one`, `image_two`, `image_three`, `image_four`, `short_description`, `color`, `size`, `long_description`, `created_at`, `updated_at`) VALUES
+(1, 1, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22'),
+(2, 2, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22'),
+(3, 3, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22'),
+(4, 4, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22'),
+(5, 5, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22'),
+(6, 6, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22'),
+(7, 7, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22'),
+(8, 8, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22'),
+(9, 9, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22'),
+(10, 10, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'Red, Black, Green', 'S,L,M,XL', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-15 19:46:22', '2023-04-15 19:46:22');
 
 -- --------------------------------------------------------
 
@@ -421,7 +459,9 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (60, '127.0.0.1', '02:30:04am', '15-04-2023', '2023-04-14 20:30:04', '2023-04-14 20:30:04'),
 (61, '127.0.0.1', '02:30:21am', '15-04-2023', '2023-04-14 20:30:21', '2023-04-14 20:30:21'),
 (62, '127.0.0.1', '02:30:30am', '15-04-2023', '2023-04-14 20:30:30', '2023-04-14 20:30:30'),
-(63, '127.0.0.1', '12:43:14am', '16-04-2023', '2023-04-15 18:43:14', '2023-04-15 18:43:14');
+(63, '127.0.0.1', '12:43:14am', '16-04-2023', '2023-04-15 18:43:14', '2023-04-15 18:43:14'),
+(64, '127.0.0.1', '01:06:33am', '16-04-2023', '2023-04-15 19:06:33', '2023-04-15 19:06:33'),
+(65, '127.0.0.1', '01:07:02am', '16-04-2023', '2023-04-15 19:07:02', '2023-04-15 19:07:02');
 
 --
 -- Indexes for dumped tables
@@ -471,6 +511,12 @@ ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `product_details`
+--
+ALTER TABLE `product_details`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_lists`
@@ -543,13 +589,19 @@ ALTER TABLE `home_sliders`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product_details`
+--
+ALTER TABLE `product_details`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `product_lists`
@@ -579,7 +631,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
