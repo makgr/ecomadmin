@@ -10,11 +10,23 @@ use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\User\AuthController;
 
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+
+
+//user login
+
+// Login Routes 
+Route::post('/login', [AuthController::class, 'Login']);
+
+// Register Routes 
+Route::post('/register', [AuthController::class, 'Register']);
+
 
 //Get Visitor 
 Route::get('/insertVisitor', [VisitorController::class, 'GetVisitorDetails']);

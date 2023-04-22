@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2023 at 08:41 AM
+-- Generation Time: Apr 22, 2023 at 09:42 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -148,7 +148,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2023_04_13_195153_create_product_lists_table', 7),
 (13, '2023_04_15_184252_create_home_sliders_table', 8),
 (14, '2023_04_15_191952_create_product_details_table', 9),
-(15, '2023_04_16_062923_create_notifications_table', 10);
+(15, '2023_04_16_062923_create_notifications_table', 10),
+(16, '2016_06_01_000001_create_oauth_auth_codes_table', 11),
+(17, '2016_06_01_000002_create_oauth_access_tokens_table', 11),
+(18, '2016_06_01_000003_create_oauth_refresh_tokens_table', 11),
+(19, '2016_06_01_000004_create_oauth_clients_table', 11),
+(20, '2016_06_01_000005_create_oauth_personal_access_clients_table', 11);
 
 -- --------------------------------------------------------
 
@@ -173,6 +178,100 @@ INSERT INTO `notifications` (`id`, `title`, `message`, `date`, `created_at`, `up
 (1, 'Test title', 'test message', '16/04/2023', '2023-04-16 06:39:26', '2023-04-16 06:39:26'),
 (2, 'Test title 2', 'test message 2', '15/04/2023', '2023-04-16 06:39:26', '2023-04-16 06:39:26'),
 (3, 'Test title 3', 'test message 3', '14/04/2023', '2023-04-16 06:39:26', '2023-04-16 06:39:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_access_tokens`
+--
+
+CREATE TABLE `oauth_access_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_auth_codes`
+--
+
+CREATE TABLE `oauth_auth_codes` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_clients`
+--
+
+CREATE TABLE `oauth_clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `redirect` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `personal_access_client` tinyint(1) NOT NULL,
+  `password_client` tinyint(1) NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_clients`
+--
+
+INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Laravel Personal Access Client', 'BjNjhWdFaxNv9tQzQB0kOZ3EYldq4OiYRW2NMCik', NULL, 'http://localhost', 1, 0, 0, '2023-04-22 12:57:51', '2023-04-22 12:57:51'),
+(2, NULL, 'Laravel Password Grant Client', 'dELRU3JvUnJ14FcFJgAgn25fOEoLCXj8VKch42dg', 'users', 'http://localhost', 0, 1, 0, '2023-04-22 12:57:51', '2023-04-22 12:57:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_personal_access_clients`
+--
+
+CREATE TABLE `oauth_personal_access_clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_personal_access_clients`
+--
+
+INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '2023-04-22 12:57:51', '2023-04-22 12:57:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_refresh_tokens`
+--
+
+CREATE TABLE `oauth_refresh_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -492,7 +591,45 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (68, '127.0.0.1', '02:15:47am', '16-04-2023', '2023-04-15 20:15:47', '2023-04-15 20:15:47'),
 (69, '127.0.0.1', '02:15:54am', '16-04-2023', '2023-04-15 20:15:54', '2023-04-15 20:15:54'),
 (70, '127.0.0.1', '02:17:06am', '16-04-2023', '2023-04-15 20:17:06', '2023-04-15 20:17:06'),
-(71, '127.0.0.1', '02:22:13am', '16-04-2023', '2023-04-15 20:22:13', '2023-04-15 20:22:13');
+(71, '127.0.0.1', '02:22:13am', '16-04-2023', '2023-04-15 20:22:13', '2023-04-15 20:22:13'),
+(72, '127.0.0.1', '07:50:05pm', '16-04-2023', '2023-04-16 13:50:05', '2023-04-16 13:50:05'),
+(73, '127.0.0.1', '07:50:18pm', '16-04-2023', '2023-04-16 13:50:18', '2023-04-16 13:50:18'),
+(74, '127.0.0.1', '07:50:49pm', '16-04-2023', '2023-04-16 13:50:49', '2023-04-16 13:50:49'),
+(75, '127.0.0.1', '07:53:23pm', '16-04-2023', '2023-04-16 13:53:23', '2023-04-16 13:53:23'),
+(76, '127.0.0.1', '07:54:07pm', '16-04-2023', '2023-04-16 13:54:07', '2023-04-16 13:54:07'),
+(77, '127.0.0.1', '09:29:31pm', '16-04-2023', '2023-04-16 15:29:32', '2023-04-16 15:29:32'),
+(78, '127.0.0.1', '09:29:47pm', '16-04-2023', '2023-04-16 15:29:47', '2023-04-16 15:29:47'),
+(79, '127.0.0.1', '09:33:09pm', '16-04-2023', '2023-04-16 15:33:09', '2023-04-16 15:33:09'),
+(80, '127.0.0.1', '09:49:16pm', '16-04-2023', '2023-04-16 15:49:16', '2023-04-16 15:49:16'),
+(81, '127.0.0.1', '09:53:57pm', '16-04-2023', '2023-04-16 15:53:57', '2023-04-16 15:53:57'),
+(82, '127.0.0.1', '09:53:59pm', '16-04-2023', '2023-04-16 15:53:59', '2023-04-16 15:53:59'),
+(83, '127.0.0.1', '09:54:11pm', '16-04-2023', '2023-04-16 15:54:11', '2023-04-16 15:54:11'),
+(84, '127.0.0.1', '09:54:20pm', '16-04-2023', '2023-04-16 15:54:20', '2023-04-16 15:54:20'),
+(85, '127.0.0.1', '09:54:27pm', '16-04-2023', '2023-04-16 15:54:27', '2023-04-16 15:54:27'),
+(86, '127.0.0.1', '09:54:44pm', '16-04-2023', '2023-04-16 15:54:44', '2023-04-16 15:54:44'),
+(87, '127.0.0.1', '09:54:55pm', '16-04-2023', '2023-04-16 15:54:55', '2023-04-16 15:54:55'),
+(88, '127.0.0.1', '09:55:01pm', '16-04-2023', '2023-04-16 15:55:01', '2023-04-16 15:55:01'),
+(89, '127.0.0.1', '09:55:23pm', '16-04-2023', '2023-04-16 15:55:23', '2023-04-16 15:55:23'),
+(90, '127.0.0.1', '09:57:06pm', '16-04-2023', '2023-04-16 15:57:06', '2023-04-16 15:57:06'),
+(91, '127.0.0.1', '09:57:36pm', '16-04-2023', '2023-04-16 15:57:36', '2023-04-16 15:57:36'),
+(92, '127.0.0.1', '11:42:26pm', '18-04-2023', '2023-04-18 17:42:26', '2023-04-18 17:42:26'),
+(93, '127.0.0.1', '11:46:35pm', '18-04-2023', '2023-04-18 17:46:35', '2023-04-18 17:46:35'),
+(94, '127.0.0.1', '11:48:15pm', '18-04-2023', '2023-04-18 17:48:15', '2023-04-18 17:48:15'),
+(95, '127.0.0.1', '11:50:06pm', '18-04-2023', '2023-04-18 17:50:06', '2023-04-18 17:50:06'),
+(96, '127.0.0.1', '11:50:18pm', '18-04-2023', '2023-04-18 17:50:18', '2023-04-18 17:50:18'),
+(97, '127.0.0.1', '11:50:40pm', '18-04-2023', '2023-04-18 17:50:40', '2023-04-18 17:50:40'),
+(98, '127.0.0.1', '11:53:52pm', '18-04-2023', '2023-04-18 17:53:52', '2023-04-18 17:53:52'),
+(99, '127.0.0.1', '11:54:05pm', '18-04-2023', '2023-04-18 17:54:05', '2023-04-18 17:54:05'),
+(100, '127.0.0.1', '12:11:08am', '22-04-2023', '2023-04-21 18:11:08', '2023-04-21 18:11:08'),
+(101, '127.0.0.1', '12:24:17am', '22-04-2023', '2023-04-21 18:24:17', '2023-04-21 18:24:17'),
+(102, '127.0.0.1', '12:24:22am', '22-04-2023', '2023-04-21 18:24:22', '2023-04-21 18:24:22'),
+(103, '127.0.0.1', '12:26:10am', '22-04-2023', '2023-04-21 18:26:10', '2023-04-21 18:26:10'),
+(104, '127.0.0.1', '12:29:53am', '22-04-2023', '2023-04-21 18:29:53', '2023-04-21 18:29:53'),
+(105, '127.0.0.1', '12:29:56am', '22-04-2023', '2023-04-21 18:29:56', '2023-04-21 18:29:56'),
+(106, '127.0.0.1', '12:30:13am', '22-04-2023', '2023-04-21 18:30:13', '2023-04-21 18:30:13'),
+(107, '127.0.0.1', '12:30:27am', '22-04-2023', '2023-04-21 18:30:27', '2023-04-21 18:30:27'),
+(108, '127.0.0.1', '12:44:43am', '22-04-2023', '2023-04-21 18:44:43', '2023-04-21 18:44:43'),
+(109, '127.0.0.1', '12:47:16am', '22-04-2023', '2023-04-21 18:47:16', '2023-04-21 18:47:16');
 
 --
 -- Indexes for dumped tables
@@ -534,6 +671,40 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oauth_access_tokens`
+--
+ALTER TABLE `oauth_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_access_tokens_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `oauth_auth_codes`
+--
+ALTER TABLE `oauth_auth_codes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_auth_codes_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_clients_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `oauth_personal_access_clients`
+--
+ALTER TABLE `oauth_personal_access_clients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oauth_refresh_tokens`
+--
+ALTER TABLE `oauth_refresh_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_refresh_tokens_access_token_id_index` (`access_token_id`);
 
 --
 -- Indexes for table `password_resets`
@@ -626,13 +797,25 @@ ALTER TABLE `home_sliders`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `oauth_personal_access_clients`
+--
+ALTER TABLE `oauth_personal_access_clients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -674,7 +857,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
