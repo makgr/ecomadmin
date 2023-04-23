@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\ForgetController;
+use App\Http\Controllers\User\ResetController;
 
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -29,6 +30,8 @@ Route::post('/login', [AuthController::class, 'Login']);
 Route::post('/register', [AuthController::class, 'Register']);
 // Forget Password Routes 
 Route::post('/forgetpassword', [ForgetController::class, 'ForgetPassword']);
+// Reset Password Routes 
+Route::post('/resetpassword', [ResetController::class, 'ResetPassword']);
 
 
 //Get Visitor 
