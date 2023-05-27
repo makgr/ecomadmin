@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2023 at 09:42 PM
+-- Generation Time: May 27, 2023 at 08:44 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -153,7 +153,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2016_06_01_000002_create_oauth_access_tokens_table', 11),
 (18, '2016_06_01_000003_create_oauth_refresh_tokens_table', 11),
 (19, '2016_06_01_000004_create_oauth_clients_table', 11),
-(20, '2016_06_01_000005_create_oauth_personal_access_clients_table', 11);
+(20, '2016_06_01_000005_create_oauth_personal_access_clients_table', 11),
+(21, '2023_05_27_183604_create_product_reviews_table', 12);
 
 -- --------------------------------------------------------
 
@@ -196,6 +197,19 @@ CREATE TABLE `oauth_access_tokens` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_access_tokens`
+--
+
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('3bfa87760acebbbbee92d641f2d45438ee66b201fd4a8fc3979d6f2ff66433d57ef3066de96d36c0', 1, 1, 'app', '[]', 0, '2023-04-30 12:14:56', '2023-04-30 12:14:56', '2024-04-30 18:14:56'),
+('3e52d70ee7706c6f3fa9ef9cee973185b28f70ce58e8019f4b093609892b364b730125d50f5010c6', 1, 1, 'app', '[]', 0, '2023-04-30 11:46:50', '2023-04-30 11:46:50', '2024-04-30 17:46:50'),
+('3f88dd94437e125f7ce3174307b10c00adfcc7e7baec6a68ae44a00bd25555adfb7e51d8c1495a0c', 1, 1, 'app', '[]', 0, '2023-04-30 11:22:55', '2023-04-30 11:22:55', '2024-04-30 17:22:55'),
+('5f9f1c6adf8efdfc0b90d7beab8a3e7eb83303c063b2984685b32a4097021802e8ef9ba219ed6686', 1, 1, 'app', '[]', 0, '2023-04-30 12:20:47', '2023-04-30 12:20:47', '2024-04-30 18:20:47'),
+('69ae7b835cf5594c89700f6b4d8f0c7981d750586b31473def49a77c9d1368a4133837488e7e4121', 2, 1, 'app', '[]', 0, '2023-04-30 11:53:23', '2023-04-30 11:53:23', '2024-04-30 17:53:23'),
+('7546579ab36c46f61fc7a556fc486a7ebd2145ead2a31a017b884f39281c1388c8fdbe3a15783ce9', 3, 1, 'app', '[]', 0, '2023-04-30 11:58:48', '2023-04-30 11:58:48', '2024-04-30 17:58:48'),
+('e16cf31b1c40f2e1d323cc57a411870e2ae71c83490dd3397ed0a8c432fc83cf2d3cbfaa4002215a', 1, 1, 'app', '[]', 0, '2023-04-30 11:42:01', '2023-04-30 11:42:01', '2024-04-30 17:42:01');
 
 -- --------------------------------------------------------
 
@@ -381,6 +395,24 @@ INSERT INTO `product_lists` (`id`, `title`, `price`, `special_price`, `image`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `product_reviews`
+--
+
+CREATE TABLE `product_reviews` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reviewer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reviewer_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reviewer_rating` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reviewer_comments` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -499,7 +531,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Mohammad Ali Khan', 'xvirus.bd@gmail.com', NULL, '$2y$10$tMWdPKANpUf5Ozn.j2r2G.g0LaceP19Q687Pgbc1Lqtirw9c9BEHW', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-26 04:05:39', '2023-03-26 04:05:39');
+(1, 'Mohammad Ali Khan', 'xvirus.bd@gmail.com', NULL, '$2y$10$tMWdPKANpUf5Ozn.j2r2G.g0LaceP19Q687Pgbc1Lqtirw9c9BEHW', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-26 04:05:39', '2023-03-26 04:05:39'),
+(2, 'test', 'test@mail.com', NULL, '$2y$10$nD1YF3iA7DdGf1ttxe3Ci.E0vc.mv6t1xV4b09oL7ly3fL3Jezr06', NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-30 11:53:22', '2023-04-30 11:53:22'),
+(3, 'new test', 'newtest@mail.com', NULL, '$2y$10$e/F5yhjNcoh7GO5KBUGLX.FTdEsjnHp8KcCkhWGkUs2jELBpE0oUi', NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-30 11:58:47', '2023-04-30 11:58:47');
 
 -- --------------------------------------------------------
 
@@ -629,7 +663,28 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (106, '127.0.0.1', '12:30:13am', '22-04-2023', '2023-04-21 18:30:13', '2023-04-21 18:30:13'),
 (107, '127.0.0.1', '12:30:27am', '22-04-2023', '2023-04-21 18:30:27', '2023-04-21 18:30:27'),
 (108, '127.0.0.1', '12:44:43am', '22-04-2023', '2023-04-21 18:44:43', '2023-04-21 18:44:43'),
-(109, '127.0.0.1', '12:47:16am', '22-04-2023', '2023-04-21 18:47:16', '2023-04-21 18:47:16');
+(109, '127.0.0.1', '12:47:16am', '22-04-2023', '2023-04-21 18:47:16', '2023-04-21 18:47:16'),
+(110, '127.0.0.1', '11:19:03pm', '30-04-2023', '2023-04-30 17:19:03', '2023-04-30 17:19:03'),
+(111, '127.0.0.1', '11:22:38pm', '30-04-2023', '2023-04-30 17:22:38', '2023-04-30 17:22:38'),
+(112, '127.0.0.1', '11:38:05pm', '30-04-2023', '2023-04-30 17:38:05', '2023-04-30 17:38:05'),
+(113, '127.0.0.1', '11:41:20pm', '30-04-2023', '2023-04-30 17:41:20', '2023-04-30 17:41:20'),
+(114, '127.0.0.1', '11:46:28pm', '30-04-2023', '2023-04-30 17:46:28', '2023-04-30 17:46:28'),
+(115, '127.0.0.1', '11:46:33pm', '30-04-2023', '2023-04-30 17:46:33', '2023-04-30 17:46:33'),
+(116, '127.0.0.1', '11:57:41pm', '30-04-2023', '2023-04-30 17:57:41', '2023-04-30 17:57:41'),
+(117, '127.0.0.1', '12:13:53am', '01-05-2023', '2023-04-30 18:13:53', '2023-04-30 18:13:53'),
+(118, '127.0.0.1', '12:14:39am', '01-05-2023', '2023-04-30 18:14:39', '2023-04-30 18:14:39'),
+(119, '127.0.0.1', '12:20:40am', '01-05-2023', '2023-04-30 18:20:40', '2023-04-30 18:20:40'),
+(120, '127.0.0.1', '12:20:58am', '01-05-2023', '2023-04-30 18:20:58', '2023-04-30 18:20:58'),
+(121, '127.0.0.1', '12:12:53am', '05-05-2023', '2023-05-04 18:12:53', '2023-05-04 18:12:53'),
+(122, '127.0.0.1', '12:14:21am', '05-05-2023', '2023-05-04 18:14:21', '2023-05-04 18:14:21'),
+(123, '127.0.0.1', '12:18:27am', '05-05-2023', '2023-05-04 18:18:27', '2023-05-04 18:18:27'),
+(124, '127.0.0.1', '12:36:12am', '05-05-2023', '2023-05-04 18:36:12', '2023-05-04 18:36:12'),
+(125, '127.0.0.1', '12:36:32am', '05-05-2023', '2023-05-04 18:36:32', '2023-05-04 18:36:32'),
+(126, '127.0.0.1', '11:26:38pm', '06-05-2023', '2023-05-06 17:26:38', '2023-05-06 17:26:38'),
+(127, '127.0.0.1', '11:26:49pm', '06-05-2023', '2023-05-06 17:26:49', '2023-05-06 17:26:49'),
+(128, '127.0.0.1', '12:15:44am', '28-05-2023', '2023-05-27 18:15:44', '2023-05-27 18:15:44'),
+(129, '127.0.0.1', '12:25:23am', '28-05-2023', '2023-05-27 18:25:23', '2023-05-27 18:25:23'),
+(130, '127.0.0.1', '12:25:44am', '28-05-2023', '2023-05-27 18:25:44', '2023-05-27 18:25:44');
 
 --
 -- Indexes for dumped tables
@@ -733,6 +788,12 @@ ALTER TABLE `product_lists`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_reviews`
+--
+ALTER TABLE `product_reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -797,7 +858,7 @@ ALTER TABLE `home_sliders`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -836,6 +897,12 @@ ALTER TABLE `product_lists`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `product_reviews`
+--
+ALTER TABLE `product_reviews`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `site_infos`
 --
 ALTER TABLE `site_infos`
@@ -851,13 +918,13 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
