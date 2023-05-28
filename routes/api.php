@@ -15,6 +15,7 @@ use App\Http\Controllers\User\ForgetController;
 use App\Http\Controllers\User\ResetController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\ProductCartController;
 
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -64,3 +65,6 @@ Route::get('/similar/{subcategory}', [ProductListController::class, 'SimilarProd
 
 // Review Product Route
 Route::get('/reviewlist/{id}', [ReviewController::class, 'ReviewList']);
+
+// Product Cart Route
+Route::post('/addtocart', [ProductCartController::class, 'addToCart']);

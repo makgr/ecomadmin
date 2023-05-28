@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2023 at 08:44 PM
+-- Generation Time: May 28, 2023 at 07:49 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -154,7 +154,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2016_06_01_000003_create_oauth_refresh_tokens_table', 11),
 (19, '2016_06_01_000004_create_oauth_clients_table', 11),
 (20, '2016_06_01_000005_create_oauth_personal_access_clients_table', 11),
-(21, '2023_05_27_183604_create_product_reviews_table', 12);
+(21, '2023_05_27_183604_create_product_reviews_table', 12),
+(22, '2023_05_28_174313_create_product_carts_table', 13);
 
 -- --------------------------------------------------------
 
@@ -313,6 +314,27 @@ CREATE TABLE `personal_access_tokens` (
   `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_carts`
+--
+
+CREATE TABLE `product_carts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `size` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quantity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `unit_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -684,7 +706,9 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (127, '127.0.0.1', '11:26:49pm', '06-05-2023', '2023-05-06 17:26:49', '2023-05-06 17:26:49'),
 (128, '127.0.0.1', '12:15:44am', '28-05-2023', '2023-05-27 18:15:44', '2023-05-27 18:15:44'),
 (129, '127.0.0.1', '12:25:23am', '28-05-2023', '2023-05-27 18:25:23', '2023-05-27 18:25:23'),
-(130, '127.0.0.1', '12:25:44am', '28-05-2023', '2023-05-27 18:25:44', '2023-05-27 18:25:44');
+(130, '127.0.0.1', '12:25:44am', '28-05-2023', '2023-05-27 18:25:44', '2023-05-27 18:25:44'),
+(131, '127.0.0.1', '12:53:55am', '28-05-2023', '2023-05-27 18:53:55', '2023-05-27 18:53:55'),
+(132, '127.0.0.1', '12:58:23am', '28-05-2023', '2023-05-27 18:58:23', '2023-05-27 18:58:23');
 
 --
 -- Indexes for dumped tables
@@ -776,6 +800,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `product_carts`
+--
+ALTER TABLE `product_carts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product_details`
 --
 ALTER TABLE `product_details`
@@ -858,7 +888,7 @@ ALTER TABLE `home_sliders`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -882,6 +912,12 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product_carts`
+--
+ALTER TABLE `product_carts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -924,7 +960,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
