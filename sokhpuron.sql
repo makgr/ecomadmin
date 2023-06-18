@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 07:49 PM
+-- Generation Time: Jun 18, 2023 at 07:46 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -98,6 +98,22 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `favourites`
+--
+
+CREATE TABLE `favourites` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `home_sliders`
 --
 
@@ -155,7 +171,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2016_06_01_000004_create_oauth_clients_table', 11),
 (20, '2016_06_01_000005_create_oauth_personal_access_clients_table', 11),
 (21, '2023_05_27_183604_create_product_reviews_table', 12),
-(22, '2023_05_28_174313_create_product_carts_table', 13);
+(22, '2023_05_28_174313_create_product_carts_table', 13),
+(23, '2023_06_18_174122_create_favourites_table', 14);
 
 -- --------------------------------------------------------
 
@@ -207,6 +224,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('3bfa87760acebbbbee92d641f2d45438ee66b201fd4a8fc3979d6f2ff66433d57ef3066de96d36c0', 1, 1, 'app', '[]', 0, '2023-04-30 12:14:56', '2023-04-30 12:14:56', '2024-04-30 18:14:56'),
 ('3e52d70ee7706c6f3fa9ef9cee973185b28f70ce58e8019f4b093609892b364b730125d50f5010c6', 1, 1, 'app', '[]', 0, '2023-04-30 11:46:50', '2023-04-30 11:46:50', '2024-04-30 17:46:50'),
 ('3f88dd94437e125f7ce3174307b10c00adfcc7e7baec6a68ae44a00bd25555adfb7e51d8c1495a0c', 1, 1, 'app', '[]', 0, '2023-04-30 11:22:55', '2023-04-30 11:22:55', '2024-04-30 17:22:55'),
+('5180eb74238a42fbe86f80b3d090b803d36ac2db1737f5d9d4815053b94c9e02c6b1cea9de1f8912', 2, 1, 'app', '[]', 0, '2023-06-18 11:09:26', '2023-06-18 11:09:26', '2024-06-18 17:09:26'),
 ('5f9f1c6adf8efdfc0b90d7beab8a3e7eb83303c063b2984685b32a4097021802e8ef9ba219ed6686', 1, 1, 'app', '[]', 0, '2023-04-30 12:20:47', '2023-04-30 12:20:47', '2024-04-30 18:20:47'),
 ('69ae7b835cf5594c89700f6b4d8f0c7981d750586b31473def49a77c9d1368a4133837488e7e4121', 2, 1, 'app', '[]', 0, '2023-04-30 11:53:23', '2023-04-30 11:53:23', '2024-04-30 17:53:23'),
 ('7546579ab36c46f61fc7a556fc486a7ebd2145ead2a31a017b884f39281c1388c8fdbe3a15783ce9', 3, 1, 'app', '[]', 0, '2023-04-30 11:58:48', '2023-04-30 11:58:48', '2024-04-30 17:58:48'),
@@ -335,9 +353,19 @@ CREATE TABLE `product_carts` (
   `quantity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `unit_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `total_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_carts`
+--
+
+INSERT INTO `product_carts` (`id`, `image`, `email`, `product_name`, `product_code`, `size`, `color`, `quantity`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
+(1, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'test@mail.com', 'Test item 2', '3366', 'Size: S', 'Color: Red', '01', '2200', '2200', NULL, NULL),
+(2, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'test@mail.com', 'Test item 2', '3366', 'Size: S', 'Color: Red', '02', '2200', '4400', '2023-06-18 17:11:01', '2023-06-18 17:11:01'),
+(3, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'test@mail.com', 'Mens Item', '103', 'Size: M', 'Color: Red', '03', '1500', '4500', '2023-06-18 17:16:40', '2023-06-18 17:16:40'),
+(4, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'test@mail.com', 'ASUS TUF A15 FA506IU Ryzen 7', '101', 'Size: L', 'Color: Black', '05', '48000', '240000', '2023-06-18 17:29:17', '2023-06-18 17:29:17');
 
 -- --------------------------------------------------------
 
@@ -708,7 +736,34 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (129, '127.0.0.1', '12:25:23am', '28-05-2023', '2023-05-27 18:25:23', '2023-05-27 18:25:23'),
 (130, '127.0.0.1', '12:25:44am', '28-05-2023', '2023-05-27 18:25:44', '2023-05-27 18:25:44'),
 (131, '127.0.0.1', '12:53:55am', '28-05-2023', '2023-05-27 18:53:55', '2023-05-27 18:53:55'),
-(132, '127.0.0.1', '12:58:23am', '28-05-2023', '2023-05-27 18:58:23', '2023-05-27 18:58:23');
+(132, '127.0.0.1', '12:58:23am', '28-05-2023', '2023-05-27 18:58:23', '2023-05-27 18:58:23'),
+(133, '127.0.0.1', '12:02:50am', '29-05-2023', '2023-05-28 18:02:50', '2023-05-28 18:02:50'),
+(134, '127.0.0.1', '12:03:04am', '29-05-2023', '2023-05-28 18:03:04', '2023-05-28 18:03:04'),
+(135, '127.0.0.1', '12:03:49am', '29-05-2023', '2023-05-28 18:03:49', '2023-05-28 18:03:49'),
+(136, '127.0.0.1', '12:42:26am', '11-06-2023', '2023-06-10 18:42:27', '2023-06-10 18:42:27'),
+(137, '127.0.0.1', '12:47:17am', '11-06-2023', '2023-06-10 18:47:17', '2023-06-10 18:47:17'),
+(138, '127.0.0.1', '12:47:44am', '11-06-2023', '2023-06-10 18:47:44', '2023-06-10 18:47:44'),
+(139, '127.0.0.1', '12:48:03am', '11-06-2023', '2023-06-10 18:48:03', '2023-06-10 18:48:03'),
+(140, '127.0.0.1', '12:49:27am', '11-06-2023', '2023-06-10 18:49:27', '2023-06-10 18:49:27'),
+(141, '127.0.0.1', '01:06:08am', '11-06-2023', '2023-06-10 19:06:08', '2023-06-10 19:06:08'),
+(142, '127.0.0.1', '01:08:33am', '11-06-2023', '2023-06-10 19:08:33', '2023-06-10 19:08:33'),
+(143, '127.0.0.1', '01:11:08am', '11-06-2023', '2023-06-10 19:11:08', '2023-06-10 19:11:08'),
+(144, '127.0.0.1', '01:11:10am', '11-06-2023', '2023-06-10 19:11:10', '2023-06-10 19:11:10'),
+(145, '127.0.0.1', '01:11:31am', '11-06-2023', '2023-06-10 19:11:31', '2023-06-10 19:11:31'),
+(146, '127.0.0.1', '01:13:02am', '11-06-2023', '2023-06-10 19:13:02', '2023-06-10 19:13:02'),
+(147, '127.0.0.1', '01:19:35am', '11-06-2023', '2023-06-10 19:19:35', '2023-06-10 19:19:35'),
+(148, '127.0.0.1', '10:57:23pm', '18-06-2023', '2023-06-18 16:57:24', '2023-06-18 16:57:24'),
+(149, '127.0.0.1', '11:02:49pm', '18-06-2023', '2023-06-18 17:02:49', '2023-06-18 17:02:49'),
+(150, '127.0.0.1', '11:02:55pm', '18-06-2023', '2023-06-18 17:02:55', '2023-06-18 17:02:55'),
+(151, '127.0.0.1', '11:04:13pm', '18-06-2023', '2023-06-18 17:04:13', '2023-06-18 17:04:13'),
+(152, '127.0.0.1', '11:05:11pm', '18-06-2023', '2023-06-18 17:05:11', '2023-06-18 17:05:11'),
+(153, '127.0.0.1', '11:09:39pm', '18-06-2023', '2023-06-18 17:09:39', '2023-06-18 17:09:39'),
+(154, '127.0.0.1', '11:25:52pm', '18-06-2023', '2023-06-18 17:25:52', '2023-06-18 17:25:52'),
+(155, '127.0.0.1', '11:26:02pm', '18-06-2023', '2023-06-18 17:26:02', '2023-06-18 17:26:02'),
+(156, '127.0.0.1', '11:26:08pm', '18-06-2023', '2023-06-18 17:26:08', '2023-06-18 17:26:08'),
+(157, '127.0.0.1', '11:29:04pm', '18-06-2023', '2023-06-18 17:29:04', '2023-06-18 17:29:04'),
+(158, '127.0.0.1', '11:31:14pm', '18-06-2023', '2023-06-18 17:31:14', '2023-06-18 17:31:14'),
+(159, '127.0.0.1', '11:31:21pm', '18-06-2023', '2023-06-18 17:31:22', '2023-06-18 17:31:22');
 
 --
 -- Indexes for dumped tables
@@ -732,6 +787,12 @@ ALTER TABLE `contacts`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `favourites`
+--
+ALTER TABLE `favourites`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `home_sliders`
@@ -879,6 +940,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `favourites`
+--
+ALTER TABLE `favourites`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `home_sliders`
 --
 ALTER TABLE `home_sliders`
@@ -888,7 +955,7 @@ ALTER TABLE `home_sliders`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -918,7 +985,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `product_carts`
 --
 ALTER TABLE `product_carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_details`
@@ -960,7 +1027,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
