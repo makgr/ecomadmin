@@ -32,4 +32,13 @@ class FavouriteController extends Controller
         $result = Favourites::where('email', $email)->get();
         return $result;
     }
+
+    public function FavouriteRemove(Request $request)
+    {
+        $product_code = $request->product_code;
+        $email = $request->email;
+
+        $result = Favourites::where('product_code', $product_code)->where('email', $email)->delete();
+        return $result;
+    }
 }
