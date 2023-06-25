@@ -71,7 +71,7 @@ Route::get('/reviewlist/{id}', [ReviewController::class, 'ReviewList']);
 Route::post('/addtocart', [ProductCartController::class, 'addToCart']);
 
 // Cart Count Route
-Route::get('/cartcount/{product_code}', [ProductCartController::class, 'CartCount']);
+Route::get('/cartcount/{email}', [ProductCartController::class, 'CartCount']);
 
 // Favourite Route
 Route::get('/favourite/{product_code}/{email}', [FavouriteController::class, 'AddFavourite']);
@@ -85,3 +85,5 @@ Route::get('/cartlist/{email}', [ProductCartController::class, 'CartList']);
 Route::get('/removecartlist/{id}', [ProductCartController::class, 'RemoveCartList']);
 Route::get('/cartitemplus/{id}/{quantity}/{price}', [ProductCartController::class, 'CartItemPlus']);
 Route::get('/cartitemminus/{id}/{quantity}/{price}', [ProductCartController::class, 'CartItemMinus']);
+// Cart Order Route
+Route::post('/cartorder', [ProductCartController::class, 'CartOrder']);
