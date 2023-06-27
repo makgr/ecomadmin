@@ -115,7 +115,7 @@ class ProductCartController extends Controller
             $cartInsertDeleteResult = "";
 
             $resultInsert = CartOrder::insert([
-                'invoice_no' => "Easy" . $invoice_no,
+                'invoice_no' => "SP" . $invoice_no,
                 'product_name' => $CartListItem['product_name'],
                 'product_code' => $CartListItem['product_code'],
                 'size' => $CartListItem['size'],
@@ -144,5 +144,12 @@ class ProductCartController extends Controller
             }
         }
         return $cartInsertDeleteResult;
+    }
+
+    public function OrderListByUser(Request $request)
+    {
+        $email = $request->email;
+        $result = CartOrder::where('email', $email)->orderBy('id', 'DESC')->get();
+        return $result;
     }
 }
