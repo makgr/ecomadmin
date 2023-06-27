@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2023 at 07:35 PM
+-- Generation Time: Jun 27, 2023 at 07:37 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -494,7 +494,7 @@ CREATE TABLE `product_reviews` (
   `product_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `reviewer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reviewer_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reviewer_photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `reviewer_rating` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `reviewer_comments` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
