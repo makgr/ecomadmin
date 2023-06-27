@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2023 at 09:02 PM
+-- Generation Time: Jun 27, 2023 at 07:35 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -46,9 +46,18 @@ CREATE TABLE `cart_orders` (
   `order_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cart_orders`
+--
+
+INSERT INTO `cart_orders` (`id`, `invoice_no`, `product_name`, `product_code`, `size`, `color`, `quantity`, `unit_price`, `total_price`, `email`, `name`, `payment_method`, `delivery_address`, `city`, `delivery_charge`, `order_date`, `order_time`, `order_status`, `created_at`, `updated_at`) VALUES
+(1, 'Easy1687720583083', 'Test item 2', '3366', 'Size: S', 'Color: Red', '3', '2200', '6600', 'test@mail.com', 'Mohammad Ali Khan', 'Cash On Delivery', 'Jamalpur sadar, Jamalpur', 'Jamalpur', '00', '26-06-2023', '01:16:23am', 'Pending', '2023-06-25 19:16:23', '2023-06-25 19:16:23'),
+(2, 'Easy1687720583083', 'Mens Item', '103', 'Size: M', 'Color: Red', '2', '1500', '3000', 'test@mail.com', 'Mohammad Ali Khan', 'Cash On Delivery', 'Jamalpur sadar, Jamalpur', 'Jamalpur', '00', '26-06-2023', '01:16:23am', 'Pending', '2023-06-25 19:16:24', '2023-06-25 19:16:24'),
+(3, 'Easy1687720583083', 'Test item 5', '3377', 'Size: XL', 'Color: Red', '02', '4455', '8910', 'test@mail.com', 'Mohammad Ali Khan', 'Cash On Delivery', 'Jamalpur sadar, Jamalpur', 'Jamalpur', '00', '26-06-2023', '01:16:23am', 'Pending', '2023-06-25 19:16:24', '2023-06-25 19:16:24');
 
 -- --------------------------------------------------------
 
@@ -266,6 +275,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('5180eb74238a42fbe86f80b3d090b803d36ac2db1737f5d9d4815053b94c9e02c6b1cea9de1f8912', 2, 1, 'app', '[]', 0, '2023-06-18 11:09:26', '2023-06-18 11:09:26', '2024-06-18 17:09:26'),
 ('5f9f1c6adf8efdfc0b90d7beab8a3e7eb83303c063b2984685b32a4097021802e8ef9ba219ed6686', 1, 1, 'app', '[]', 0, '2023-04-30 12:20:47', '2023-04-30 12:20:47', '2024-04-30 18:20:47'),
 ('69ae7b835cf5594c89700f6b4d8f0c7981d750586b31473def49a77c9d1368a4133837488e7e4121', 2, 1, 'app', '[]', 0, '2023-04-30 11:53:23', '2023-04-30 11:53:23', '2024-04-30 17:53:23'),
+('6ebdb3029c829fb00390f51d316b4c13e8d979090b9039b8b2267b18aaafa3cb9c729d2ba701ea96', 2, 1, 'app', '[]', 0, '2023-06-27 11:20:27', '2023-06-27 11:20:27', '2024-06-27 17:20:27'),
 ('7546579ab36c46f61fc7a556fc486a7ebd2145ead2a31a017b884f39281c1388c8fdbe3a15783ce9', 3, 1, 'app', '[]', 0, '2023-04-30 11:58:48', '2023-04-30 11:58:48', '2024-04-30 17:58:48'),
 ('b79b607a36bd92b89efd4487c6b3a0cecce887f81349cfb1b88ffea4643e46195ea33d8919aac879', 2, 1, 'app', '[]', 0, '2023-06-24 13:19:36', '2023-06-24 13:19:36', '2024-06-24 19:19:36'),
 ('e06041364fc2634c4d0bb59d19b9935ab3bab9c086592e165d242de5a7d0c50d05ee9a97d5697196', 2, 1, 'app', '[]', 0, '2023-06-25 12:32:24', '2023-06-25 12:32:24', '2024-06-25 18:32:24'),
@@ -398,15 +408,6 @@ CREATE TABLE `product_carts` (
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `product_carts`
---
-
-INSERT INTO `product_carts` (`id`, `image`, `email`, `product_name`, `product_code`, `size`, `color`, `quantity`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
-(2, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'test@mail.com', 'Test item 2', '3366', 'Size: S', 'Color: Red', '3', '2200', '6600', '2023-06-18 17:11:01', '2023-06-25 12:40:13'),
-(3, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'test@mail.com', 'Mens Item', '103', 'Size: M', 'Color: Red', '2', '1500', '3000', '2023-06-18 17:16:40', '2023-06-25 12:40:25'),
-(5, 'https://burst.shopifycdn.com/photos/grooms-prep-kit-for-wedding.jpg?width=925&format=pjpg&exif=1&iptc=1', 'test@mail.com', 'Test item 5', '3377', 'Size: XL', 'Color: Red', '02', '4455', '8910', '2023-06-25 18:39:18', '2023-06-25 18:39:18');
-
 -- --------------------------------------------------------
 
 --
@@ -490,7 +491,7 @@ INSERT INTO `product_lists` (`id`, `title`, `price`, `special_price`, `image`, `
 
 CREATE TABLE `product_reviews` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `product_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `reviewer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `reviewer_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -820,7 +821,11 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (173, '127.0.0.1', '01:21:45am', '25-06-2023', '2023-06-24 19:21:45', '2023-06-24 19:21:45'),
 (174, '127.0.0.1', '12:30:39am', '26-06-2023', '2023-06-25 18:30:39', '2023-06-25 18:30:39'),
 (175, '127.0.0.1', '12:38:50am', '26-06-2023', '2023-06-25 18:38:50', '2023-06-25 18:38:50'),
-(176, '127.0.0.1', '12:39:05am', '26-06-2023', '2023-06-25 18:39:05', '2023-06-25 18:39:05');
+(176, '127.0.0.1', '12:39:05am', '26-06-2023', '2023-06-25 18:39:05', '2023-06-25 18:39:05'),
+(177, '127.0.0.1', '01:18:13am', '26-06-2023', '2023-06-25 19:18:13', '2023-06-25 19:18:13'),
+(178, '127.0.0.1', '01:18:16am', '26-06-2023', '2023-06-25 19:18:16', '2023-06-25 19:18:16'),
+(179, '127.0.0.1', '01:18:21am', '26-06-2023', '2023-06-25 19:18:21', '2023-06-25 19:18:21'),
+(180, '127.0.0.1', '11:18:27pm', '27-06-2023', '2023-06-27 17:18:27', '2023-06-27 17:18:27');
 
 --
 -- Indexes for dumped tables
@@ -988,7 +993,7 @@ ALTER TABLE `visitors`
 -- AUTO_INCREMENT for table `cart_orders`
 --
 ALTER TABLE `cart_orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -1096,7 +1101,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
