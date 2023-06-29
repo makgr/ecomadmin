@@ -14,4 +14,7 @@ class Visitor extends Model
         'visit_time',
         'visit_date',
     ];
+
+    
 }
+ 

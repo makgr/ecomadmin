@@ -8,8 +8,8 @@ use App\Models\Visitor;
 
 class VisitorController extends Controller
 {
-    public function GetVisitorDetails()
-    {
+    
+    public function GetVisitorDetails(){
 
         $ip_address = $_SERVER['REMOTE_ADDR'];
         date_default_timezone_set("Asia/Dhaka");
@@ -24,5 +24,12 @@ class VisitorController extends Controller
         ]);
 
         return $result;
-    }
+
+
+    } // end method 
+
+
+
+
 }
+ 

@@ -9,19 +9,23 @@ use App\Models\ProductDetails;
 
 class ProductDetailsController extends Controller
 {
-    public function ProductDetails(Request $request)
-    {
+    public function ProductDetails(Request $request){
 
         $id = $request->id;
 
-        $productDetails = ProductDetails::where('product_id', $id)->get();
-        $productList = ProductList::where('id', $id)->get();
+        $productDetails = ProductDetails::where('product_id',$id)->get();
+        $productList = ProductList::where('id',$id)->get();
 
-        $item = [
-            'productDetails' => $productDetails,
-            'productList' => $productList,
-        ];
+         $item = [
+                'productDetails' => $productDetails,
+                'productList' => $productList,                 
+            ];
 
-        return $item;
-    }
+            return $item;
+
+    } // End Method 
+
+
+
 }
+ 

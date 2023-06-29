@@ -10,8 +10,8 @@ use Illuminate\Queue\SerializesModels;
 class ForgetMail extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $token;
+    
+     public $token;
 
     /** 
      * Create a new message instance.
@@ -20,7 +20,7 @@ class ForgetMail extends Mailable
      */
     public function __construct($token)
     {
-        $this->data = $token;
+         $this->data = $token;
     }
 
     /**
@@ -31,6 +31,6 @@ class ForgetMail extends Mailable
     public function build()
     {
         $data = $this->data;
-        return $this->from('info@robotbalok.com')->view('mail.forget', compact('data'))->subject('Password Reset Link');
+        return $this->from('support@easylearningbd.com')->view('mail.forget',compact('data'))->subject('Password Reset Link');
     }
 }

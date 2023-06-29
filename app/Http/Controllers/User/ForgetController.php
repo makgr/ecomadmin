@@ -15,20 +15,19 @@ use App\Mail\ForgetMail;
 
 class ForgetController extends Controller
 {
-    public function ForgetPassword(ForgetRequest $request)
-    {
+    public function ForgetPassword(ForgetRequest $request){
         $email = $request->email;
 
-        if (User::where('email', $email)->doesntExist()) {
+        if (User::where('email',$email)->doesntExist()) {
             return response([
                 'message' => 'Email Invalid'
-            ], 401);
+            ],401);
         }
 
         // generate Randome Token 
-        $token = rand(10, 100000);
+        $token = rand(10,100000);
 
-        try {
+        try{
             DB::table('password_resets')->insert([
                 'email' => $email,
                 'token' => $token
@@ -39,11 +38,12 @@ class ForgetController extends Controller
 
             return response([
                 'message' => 'Reset Password Mail send on your email'
-            ], 200);
-        } catch (Exception $exception) {
+            ],200);
+
+        }catch(Exception $exception){
             return response([
                 'message' => $exception->getMessage()
-            ], 400);
+            ],400);
         }
     } // end mehtod 
 

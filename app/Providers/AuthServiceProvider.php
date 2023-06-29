@@ -26,6 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Gate::define('update-model', [ModelPolicy::class, 'update']);
+
         if (!$this->app->routesAreCached()) {
             Passport::routes();
         }

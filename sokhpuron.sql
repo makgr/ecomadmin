@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2023 at 07:37 PM
+-- Generation Time: Jun 29, 2023 at 09:44 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -57,7 +57,8 @@ CREATE TABLE `cart_orders` (
 INSERT INTO `cart_orders` (`id`, `invoice_no`, `product_name`, `product_code`, `size`, `color`, `quantity`, `unit_price`, `total_price`, `email`, `name`, `payment_method`, `delivery_address`, `city`, `delivery_charge`, `order_date`, `order_time`, `order_status`, `created_at`, `updated_at`) VALUES
 (1, 'Easy1687720583083', 'Test item 2', '3366', 'Size: S', 'Color: Red', '3', '2200', '6600', 'test@mail.com', 'Mohammad Ali Khan', 'Cash On Delivery', 'Jamalpur sadar, Jamalpur', 'Jamalpur', '00', '26-06-2023', '01:16:23am', 'Pending', '2023-06-25 19:16:23', '2023-06-25 19:16:23'),
 (2, 'Easy1687720583083', 'Mens Item', '103', 'Size: M', 'Color: Red', '2', '1500', '3000', 'test@mail.com', 'Mohammad Ali Khan', 'Cash On Delivery', 'Jamalpur sadar, Jamalpur', 'Jamalpur', '00', '26-06-2023', '01:16:23am', 'Pending', '2023-06-25 19:16:24', '2023-06-25 19:16:24'),
-(3, 'Easy1687720583083', 'Test item 5', '3377', 'Size: XL', 'Color: Red', '02', '4455', '8910', 'test@mail.com', 'Mohammad Ali Khan', 'Cash On Delivery', 'Jamalpur sadar, Jamalpur', 'Jamalpur', '00', '26-06-2023', '01:16:23am', 'Pending', '2023-06-25 19:16:24', '2023-06-25 19:16:24');
+(3, 'Easy1687720583083', 'Test item 5', '3377', 'Size: XL', 'Color: Red', '02', '4455', '8910', 'test@mail.com', 'Mohammad Ali Khan', 'Cash On Delivery', 'Jamalpur sadar, Jamalpur', 'Jamalpur', '00', '26-06-2023', '01:16:23am', 'Pending', '2023-06-25 19:16:24', '2023-06-25 19:16:24'),
+(4, 'SP1687888258943', 'Test item 5', '3377', 'Size: M', 'Color: Red', '03', '4455', '13365', 'test@mail.com', 'Test', 'Cash On Delivery', 'Dhaka', 'Dhaka', '00', '27-06-2023', '11:50:59pm', 'Complete', '2023-06-27 17:50:59', '2023-06-29 11:47:01');
 
 -- --------------------------------------------------------
 
@@ -78,16 +79,16 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category_name`, `category_image`, `created_at`, `updated_at`) VALUES
-(1, 'Mobile', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28'),
-(2, 'Electronics', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28'),
-(3, 'Computer', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28'),
-(4, 'Home Appliance', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28'),
-(5, 'Fashion', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28'),
-(6, 'Baby', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28'),
-(7, 'Furniture', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28'),
-(8, 'Books', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28'),
-(9, 'Sports', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28'),
-(10, 'Others', 'http://127.0.0.1:8000/storage/caticon.png', '2023-04-02 16:37:28', '2023-04-02 16:37:28');
+(1, 'Mobile', 'http://127.0.0.1:8000/upload/category/1770059733438542.png', '2023-04-02 16:37:28', '2023-06-29 11:41:46'),
+(2, 'Electronics', 'http://127.0.0.1:8000/upload/category/1770059742841278.png', '2023-04-02 16:37:28', '2023-06-29 11:41:55'),
+(3, 'Computer', 'http://127.0.0.1:8000/upload/category/1770059756004156.png', '2023-04-02 16:37:28', '2023-06-29 11:42:07'),
+(4, 'Home Appliance', 'http://127.0.0.1:8000/upload/category/1770059770773259.png', '2023-04-02 16:37:28', '2023-06-29 11:42:21'),
+(5, 'Fashion', 'http://127.0.0.1:8000/upload/category/1770059779583581.png', '2023-04-02 16:37:28', '2023-06-29 11:42:30'),
+(6, 'Baby', 'http://127.0.0.1:8000/upload/category/1770059797924934.png', '2023-04-02 16:37:28', '2023-06-29 11:42:47'),
+(7, 'Furniture', 'http://127.0.0.1:8000/upload/category/1770059806982426.png', '2023-04-02 16:37:28', '2023-06-29 11:42:56'),
+(8, 'Books', 'http://127.0.0.1:8000/upload/category/1770059816125988.png', '2023-04-02 16:37:28', '2023-06-29 11:43:05'),
+(9, 'Sports', 'http://127.0.0.1:8000/upload/category/1770059824545763.png', '2023-04-02 16:37:28', '2023-06-29 11:43:13'),
+(10, 'Others', 'http://127.0.0.1:8000/upload/category/1770059787734765.png', '2023-04-02 16:37:28', '2023-06-29 11:42:38');
 
 -- --------------------------------------------------------
 
@@ -112,10 +113,7 @@ CREATE TABLE `contacts` (
 
 INSERT INTO `contacts` (`id`, `name`, `email`, `message`, `contact_date`, `contact_time`, `created_at`, `updated_at`) VALUES
 (1, 'Mohammad Ali Khan', 'xvirus.bd@gmail.com', 'This is test message form contact page.', '01-04-2023', '11:31:25pm', '2023-04-01 17:31:25', '2023-04-01 17:31:25'),
-(2, 'test name', 'test@mail.com', 'test message.', '01-04-2023', '11:36:48pm', '2023-04-01 17:36:49', '2023-04-01 17:36:49'),
-(3, 'new user', 'newu@mail.com', 'testing message from contact page.', '01-04-2023', '11:43:15pm', '2023-04-01 17:43:15', '2023-04-01 17:43:15'),
-(4, 'aaa', 'a@mail.com', 'aaa', '01-04-2023', '11:57:10pm', '2023-04-01 17:57:10', '2023-04-01 17:57:10'),
-(6, 'ddd', 's@mail.com', 'aaa', '12-04-2023', '11:50:38pm', '2023-04-12 17:50:38', '2023-04-12 17:50:38');
+(2, 'test name', 'test@mail.com', 'test message.', '01-04-2023', '11:36:48pm', '2023-04-01 17:36:49', '2023-04-01 17:36:49');
 
 -- --------------------------------------------------------
 
@@ -174,9 +172,9 @@ CREATE TABLE `home_sliders` (
 --
 
 INSERT INTO `home_sliders` (`id`, `slider_image`, `created_at`, `updated_at`) VALUES
-(1, 'http://127.0.0.1:8000/storage/slider1.jpg', '2023-04-15 18:54:54', '2023-04-15 18:54:54'),
-(2, 'http://127.0.0.1:8000/storage/slider2.jpg', '2023-04-15 18:54:54', '2023-04-15 18:54:54'),
-(3, 'http://127.0.0.1:8000/storage/slider3.jpg', '2023-04-15 18:55:04', '2023-04-15 18:55:04');
+(1, 'http://127.0.0.1:8000/upload/slider/1770059911110207.jpg', '2023-04-15 18:54:54', '2023-06-29 11:44:36'),
+(2, 'http://127.0.0.1:8000/upload/slider/1770059920900008.jpg', '2023-04-15 18:54:54', '2023-06-29 11:44:45'),
+(3, 'http://127.0.0.1:8000/upload/slider/1770059887693681.jpg', '2023-04-15 18:55:04', '2023-06-29 11:44:14');
 
 -- --------------------------------------------------------
 
@@ -417,10 +415,10 @@ CREATE TABLE `product_carts` (
 CREATE TABLE `product_details` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` int(11) NOT NULL,
-  `image_one` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_two` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_three` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_four` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_three` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_four` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `short_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `color` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `size` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -461,7 +459,7 @@ CREATE TABLE `product_lists` (
   `subcategory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remark` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `brand` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `star` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `star` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
@@ -497,9 +495,16 @@ CREATE TABLE `product_reviews` (
   `reviewer_photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `reviewer_rating` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `reviewer_comments` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_reviews`
+--
+
+INSERT INTO `product_reviews` (`id`, `product_code`, `product_name`, `reviewer_name`, `reviewer_photo`, `reviewer_rating`, `reviewer_comments`, `created_at`, `updated_at`) VALUES
+(1, '3377', 'Test item 5', 'Test', NULL, '5', 'Amazing.', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -521,10 +526,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('6Uw6FsxEAV9lakDRitdvrPq1tBPTT4JGJZgaOlRV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSW9lYko4OWFCS2JQVWxyMUFpaDZDaFJla1lRWkdYQ09Qc0NqcWRHUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1679851379),
-('G5kRhirzoEptu8LZkAn5Nm9amUETt0Pw6O0cd1im', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicGdLMThKZTlLTU5jSDRMSG5JaUp3bVIxSWdnR2NORjNkRkM4U2RETSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1679827354),
-('jBddhvKlimvFgp9kTuHciZsYcRajcMGQfBtzzx1A', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVW1wNjJ6RkN5c0RlcVhyYmg5STVnYVNXVjRRSGh2czZpbGlTVnlsYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1680115089),
-('LY5ZAdqzUKpfTHxpPCp6BZaCmxy3ZjMlmjoZYQPK', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoieVNZMUJYN0VJbnJxcGlhaXZPOURRMUhMakFKQWgxcDVUNDdPVHFHZyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1680453138);
+('ciuQPzoymDjlQ7q7u6fgOcgieZk1SKU7V6oiG4SU', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoicktSajRJRGNRS0RzRDdoM3gzNnpOOWN4MlNUVGZlNGlrMWhJQUtONCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0L2FsbCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkdE1XZFBLQU5wVWY1T3puLmoycjJHLmcwTGFjZVAxOVE2ODdQZ2JjMUxxdGlydzljOUJFSFciO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJHRNV2RQS0FOcFVmNU96bi5qMnIyRy5nMExhY2VQMTlRNjg3UGdiYzFMcXRpcnc5YzlCRUhXIjtzOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1688067852);
 
 -- --------------------------------------------------------
 
@@ -554,7 +556,7 @@ CREATE TABLE `site_infos` (
 --
 
 INSERT INTO `site_infos` (`id`, `about`, `refund`, `parchase_guide`, `privacy`, `address`, `android_app_link`, `ios_app_link`, `facbook_link`, `twitter_link`, `instagram_link`, `copyright_text`, `created_at`, `updated_at`) VALUES
-(1, '<p>About Us</p>\r\n\r\n<p>Sokh Puron is a leading online retailer that offers a wide range of high-quality products at competitive prices. Our mission is to provide our customers with the best possible shopping experience by offering top-quality products, excellent customer service, and fast, reliable shipping. Our company was founded in 2021 by Mohammad Ali Khan, Md. Mehedi Hasan Khan and Jannatul Mahia had a vision of creating an online shopping destination that offered a wide selection of products at affordable prices. Since then, we have grown into one of the largest online retailers in the industry, with a team of experienced professionals who are dedicated to providing our customers with the best possible service. At Sokh Puron, we believe in putting our customers first. That&#39;s why we offer a 100% satisfaction guarantee on all of our products, and why we are always looking for ways to improve our service and make our customers&#39; lives easier. Whether you&#39;re shopping for electronics, clothing, home goods, or anything in between, you can trust us to provide you with the best possible products and services. Our team is made up of passionate professionals who are committed to making your shopping experience as easy and enjoyable as possible. From our customer service representatives to our warehouse staff, everyone at Sokh Puron is dedicated to providing you with the best possible service and ensuring that you are completely satisfied with your purchase. Thank you for choosing Sokh Puron. We look forward to serving you and making your online shopping experience a great one.</p>', '<p>Refund Policy</p>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '<p>Purchase</p>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '<p>Privacy Policy</p>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '<p><strong>Jamalpur, Bangladesh 2000</strong></p>', '', '', 'https://www.facebook.com/sokhpuronbd', 'https://twitter.com/xvirusbd', 'https://www.instagram.com/xvirus.bd', '© Copyright 2023 by Sokh Puron. All Rights Reserved. Developed by Mohammad Ali Khan', '2023-04-01 19:02:30', '2023-04-01 19:02:30');
+(1, '<p>About Us</p>\r\n<p>Sokh Puron is a leading online retailer that offers a wide range of high-quality products at competitive prices. Our mission is to provide our customers with the best possible shopping experience by offering top-quality products, excellent customer service, and fast, reliable shipping. Our company was founded in 2021 by Mohammad Ali Khan, Md. Mehedi Hasan Khan and Jannatul Mahia had a vision of creating an online shopping destination that offered a wide selection of products at affordable prices. Since then, we have grown into one of the largest online retailers in the industry, with a team of experienced professionals who are dedicated to providing our customers with the best possible service. At Sokh Puron, we believe in putting our customers first. That\'s why we offer a 100% satisfaction guarantee on all of our products, and why we are always looking for ways to improve our service and make our customers\' lives easier. Whether you\'re shopping for electronics, clothing, home goods, or anything in between, you can trust us to provide you with the best possible products and services. Our team is made up of passionate professionals who are committed to making your shopping experience as easy and enjoyable as possible. From our customer service representatives to our warehouse staff, everyone at Sokh Puron is dedicated to providing you with the best possible service and ensuring that you are completely satisfied with your purchase. Thank you for choosing Sokh Puron. We look forward to serving you and making your online shopping experience a great one.</p>', '<p>Refund Policy</p>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '<p>Purchase</p>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '<p>Privacy Policy</p>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '<p><strong>Jamalpur, Bangladesh 2000</strong></p>', '#', '#', 'https://www.facebook.com/sokhpuronbd', 'https://twitter.com/xvirusbd', 'https://www.instagram.com/xvirus.bd', '© Copyright 2023 by Sokh Puron. All Rights Reserved. Developed by Mohammad Ali Khan', '2023-04-01 19:02:30', '2023-06-29 12:26:13');
 
 -- --------------------------------------------------------
 
@@ -622,7 +624,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Mohammad Ali Khan', 'xvirus.bd@gmail.com', NULL, '$2y$10$tMWdPKANpUf5Ozn.j2r2G.g0LaceP19Q687Pgbc1Lqtirw9c9BEHW', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-26 04:05:39', '2023-03-26 04:05:39'),
+(1, 'Mohammad Ali Khan', 'xvirus.bd@gmail.com', NULL, '$2y$10$tMWdPKANpUf5Ozn.j2r2G.g0LaceP19Q687Pgbc1Lqtirw9c9BEHW', NULL, NULL, NULL, NULL, NULL, '202306291733khan.jpg', '2023-03-26 04:05:39', '2023-06-29 11:33:15'),
 (2, 'test', 'test@mail.com', NULL, '$2y$10$nD1YF3iA7DdGf1ttxe3Ci.E0vc.mv6t1xV4b09oL7ly3fL3Jezr06', NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-30 11:53:22', '2023-04-30 11:53:22'),
 (3, 'new test', 'newtest@mail.com', NULL, '$2y$10$e/F5yhjNcoh7GO5KBUGLX.FTdEsjnHp8KcCkhWGkUs2jELBpE0oUi', NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-30 11:58:47', '2023-04-30 11:58:47');
 
@@ -825,7 +827,9 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (177, '127.0.0.1', '01:18:13am', '26-06-2023', '2023-06-25 19:18:13', '2023-06-25 19:18:13'),
 (178, '127.0.0.1', '01:18:16am', '26-06-2023', '2023-06-25 19:18:16', '2023-06-25 19:18:16'),
 (179, '127.0.0.1', '01:18:21am', '26-06-2023', '2023-06-25 19:18:21', '2023-06-25 19:18:21'),
-(180, '127.0.0.1', '11:18:27pm', '27-06-2023', '2023-06-27 17:18:27', '2023-06-27 17:18:27');
+(180, '127.0.0.1', '11:18:27pm', '27-06-2023', '2023-06-27 17:18:27', '2023-06-27 17:18:27'),
+(181, '127.0.0.1', '11:47:37pm', '27-06-2023', '2023-06-27 17:47:37', '2023-06-27 17:47:37'),
+(182, '127.0.0.1', '11:53:38pm', '27-06-2023', '2023-06-27 17:53:38', '2023-06-27 17:53:38');
 
 --
 -- Indexes for dumped tables
@@ -993,7 +997,7 @@ ALTER TABLE `visitors`
 -- AUTO_INCREMENT for table `cart_orders`
 --
 ALTER TABLE `cart_orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -1059,25 +1063,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `product_carts`
 --
 ALTER TABLE `product_carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product_details`
 --
 ALTER TABLE `product_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product_lists`
 --
 ALTER TABLE `product_lists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `site_infos`
@@ -1101,7 +1105,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

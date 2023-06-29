@@ -8,21 +8,26 @@ use App\Models\SiteInfo;
 
 class SiteInfoController extends Controller
 {
+    public function AllSiteinfo(){
 
-    public function AllSiteinfo()
-    {
         $result = SiteInfo::get();
         return $result;
-    }
 
-    public function GetSiteInfo()
-    {
+    } // End Method
+
+
+
+    public function GetSiteInfo(){
+
         $siteinfo = SiteInfo::find(1);
-        return view('backend.siteinfo.siteinfo_update', compact('siteinfo'));
-    }
+        return view('backend.siteinfo.siteinfo_update',compact('siteinfo'));
 
-    public function UpdateSiteInfo(Request $request)
-    {
+    } // End Method
+
+
+
+    public function UpdateSiteInfo(Request $request){
+
         $siteinfo_id = $request->id;
 
         SiteInfo::findOrFail($siteinfo_id)->update([
@@ -36,7 +41,7 @@ class SiteInfoController extends Controller
             'facbook_link' => $request->facbook_link,
             'twitter_link' => $request->twitter_link,
             'instagram_link' => $request->instagram_link,
-            'copyright_text' => $request->copyright_text,
+            'copyright_text' => $request->copyright_text, 
 
         ]);
 
@@ -47,5 +52,12 @@ class SiteInfoController extends Controller
         );
 
         return redirect()->back()->with($notification);
-    }
+
+    } // End Method
+
+
+
+
+
 }
+  

@@ -8,8 +8,8 @@ use Auth;
 
 class UserController extends Controller
 {
-    public function User()
-    {
+     public function User(){
+
         return Auth::user();
-    }
+    } // End Mehtod
 }
