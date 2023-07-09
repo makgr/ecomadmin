@@ -36,7 +36,7 @@
                                             <label for="inputProductTitle" class="form-label">Product Title</label>
                                             <input type="text" name="title" class="form-control" id="inputProductTitle"
                                                 value="{{ $product->title }}">
-                                            <input type="hidden" name="title" class="form-control" name="product_id"
+                                            <input type="hidden" class="form-control" name="product_id"
                                                 id="inputProductTitle" value="{{ $product->id }}">
                                         </div>
 

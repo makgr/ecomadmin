@@ -188,92 +188,92 @@ class ProductListController extends Controller
 
         ]);
 
-        // $image = $request->file('image');
-        // if ($image != '') {
-        //     $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        //     Image::make($image)->resize(711, 960)->save('upload/product/' . $name_gen);
-        //     $save_url = 'http://127.0.0.1:8000/upload/product/' . $name_gen;
+        $image = $request->file('image');
+        if ($image != '') {
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(711, 960)->save('upload/product/' . $name_gen);
+            $save_url = 'http://127.0.0.1:8000/upload/product/' . $name_gen;
 
-        //     ProductList::where('id', $request->product_id)->update([
-        //         'title' => $request->title,
-        //         'price' => $request->price,
-        //         'special_price' => $request->special_price,
-        //         'category' => $request->category,
-        //         'subcategory' => $request->subcategory,
-        //         'remark' => $request->remark,
-        //         'brand' => $request->brand,
-        //         'product_code' => $request->product_code,
-        //         'image' => $save_url,
+            ProductList::where('id', $request->product_id)->update([
+                'title' => $request->title,
+                'price' => $request->price,
+                'special_price' => $request->special_price,
+                'category' => $request->category,
+                'subcategory' => $request->subcategory,
+                'remark' => $request->remark,
+                'brand' => $request->brand,
+                'product_code' => $request->product_code,
+                'image' => $save_url,
 
-        //     ]);
-        // }
+            ]);
+        }
 
 
         /////// Insert Into Product Details Table ////// 
 
-        // $image1 = $request->file('image_one');
-        // if ($image1 != '') {
-        //     $name_gen1 = hexdec(uniqid()) . '.' . $image1->getClientOriginalExtension();
-        //     Image::make($image1)->resize(711, 960)->save('upload/productdetails/' . $name_gen1);
-        //     $save_url1 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen1;
+        $image1 = $request->file('image_one');
+        if ($image1 != '') {
+            $name_gen1 = hexdec(uniqid()) . '.' . $image1->getClientOriginalExtension();
+            Image::make($image1)->resize(711, 960)->save('upload/productdetails/' . $name_gen1);
+            $save_url1 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen1;
 
-        //     ProductDetails::where('product_id', $request->product_id)->update([
-        //         'image_one' => $save_url1,
+            ProductDetails::where('product_id', $request->product_id)->update([
+                'image_one' => $save_url1,
 
-        //     ]);
-        // }
-
-
-
-        // $image2 = $request->file('image_two');
-        // if ($image2 != '') {
-        //     $name_gen2 = hexdec(uniqid()) . '.' . $image2->getClientOriginalExtension();
-        //     Image::make($image2)->resize(711, 960)->save('upload/productdetails/' . $name_gen2);
-        //     $save_url2 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen2;
-
-        //     ProductDetails::where('product_id', $request->product_id)->update([
-        //         'image_two' => $save_url2,
-
-        //     ]);
-        // }
+            ]);
+        }
 
 
 
-        // $image3 = $request->file('image_three');
-        // if ($image3 != '') {
-        //     $name_gen3 = hexdec(uniqid()) . '.' . $image3->getClientOriginalExtension();
-        //     Image::make($image1)->resize(711, 960)->save('upload/productdetails/' . $name_gen3);
-        //     $save_url3 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen3;
+        $image2 = $request->file('image_two');
+        if ($image2 != '') {
+            $name_gen2 = hexdec(uniqid()) . '.' . $image2->getClientOriginalExtension();
+            Image::make($image2)->resize(711, 960)->save('upload/productdetails/' . $name_gen2);
+            $save_url2 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen2;
 
-        //     ProductDetails::where('product_id', $request->product_id)->update([
-        //         'image_three' => $save_url3,
+            ProductDetails::where('product_id', $request->product_id)->update([
+                'image_two' => $save_url2,
 
-        //     ]);
-        // }
-
-
+            ]);
+        }
 
 
-        // $image4 = $request->file('image_four');
-        // if ($image4 != '') {
-        //     $name_gen4 = hexdec(uniqid()) . '.' . $image4->getClientOriginalExtension();
-        //     Image::make($image4)->resize(711, 960)->save('upload/productdetails/' . $name_gen4);
-        //     $save_url4 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen4;
 
-        //     ProductDetails::where('product_id', $request->product_id)->update([
-        //         'image_four' => $save_url4,
+        $image3 = $request->file('image_three');
+        if ($image3 != '') {
+            $name_gen3 = hexdec(uniqid()) . '.' . $image3->getClientOriginalExtension();
+            Image::make($image1)->resize(711, 960)->save('upload/productdetails/' . $name_gen3);
+            $save_url3 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen3;
 
-        //     ]);
-        // }
+            ProductDetails::where('product_id', $request->product_id)->update([
+                'image_three' => $save_url3,
+
+            ]);
+        }
 
 
-        // ProductDetails::where('product_id', $request->product_id)->update([
-        //     'short_description' => $request->short_description,
-        //     'color' =>  $request->color,
-        //     'size' =>  $request->size,
-        //     'long_description' => $request->long_description,
 
-        // ]);
+
+        $image4 = $request->file('image_four');
+        if ($image4 != '') {
+            $name_gen4 = hexdec(uniqid()) . '.' . $image4->getClientOriginalExtension();
+            Image::make($image4)->resize(711, 960)->save('upload/productdetails/' . $name_gen4);
+            $save_url4 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen4;
+
+            ProductDetails::where('product_id', $request->product_id)->update([
+                'image_four' => $save_url4,
+
+            ]);
+        }
+
+
+        ProductDetails::where('product_id', $request->product_id)->update([
+            'short_description' => $request->short_description,
+            'color' =>  $request->color,
+            'size' =>  $request->size,
+            'long_description' => $request->long_description,
+
+        ]);
 
         if ($product_update) {
             $notification = array(
